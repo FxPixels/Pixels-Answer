@@ -1,3 +1,35 @@
 <view>
-  xxxx
+  <view class="detail">
+    <view class="back" bind:tap="goBack">
+      <wux-icon type="ios-arrow-back" color="#fff"/>
+    </view>
+    <view class="intro">
+      <view class="say-1">你说呢…</view>
+      <view class="say-2">不知道说什么不知道说什么不知道说什么，不知道说什么。</view>
+    </view>
+    <image class="bg" src="http://test.fxpixels.site/29abecbe04af42b81f45f176dc0b3dea_hd.jpg"></image>
+    <view class="info">
+      <view class="name">
+        <image src="http://test.fxpixels.site/29abecbe04af42b81f45f176dc0b3dea_hd.jpg"></image>
+        <view>
+          <view class="title">这是什么游戏</view>
+          <view class="desc">这是什么游戏简介</view>
+        </view>
+      </view>
+      <view class="data">
+        <view>
+          <view>热度</view>
+          <view>13030</view>
+        </view>
+        <view>
+          <view>题目</view>
+          <view>10</view>
+        </view>
+        <view>
+          <view>留言</view>
+          <view>20</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

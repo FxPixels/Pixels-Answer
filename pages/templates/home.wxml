@@ -1,16 +1,18 @@
 <template name="home">
-  <view class="list">
-    <view class="item">
-      <view class="sign">主打推荐</view>
-      <view class="title">体验纯粹的摄影乐趣</view>
-      <image src="http://test.fxpixels.site/Snipaste_2018-12-06_16-19-58.png" mode="widthFix"></image>
-      <view class="desc">这里是游戏简介，这里是游戏简介，这里是游戏简这里是游戏简介这里是游戏简介。</view>
+  <wux-refresher id="wux-refresher" bind:pulling="onPulling" bind:refresh="onRefresh">
+    <view class="list">
+      <view class="item">
+        <view class="sign">主打推荐</view>
+        <view class="title">体验纯粹的摄影乐趣</view>
+        <image src="http://test.fxpixels.site/Snipaste_2018-12-06_16-19-58.png" mode="widthFix"></image>
+        <view class="desc">这里是游戏简介，这里是游戏简介，这里是游戏简这里是游戏简介这里是游戏简介。</view>
+      </view>
+      <view class="item" bind:tap="goToGameDetail">
+        <view class="sign">编辑精选</view>
+        <view class="title">2018年度游戏精选</view>
+        <image src="http://test.fxpixels.site/Snipaste_2018-12-06_15-37-56.png" mode="widthFix"></image>
+        <view class="desc">这里是游戏简介，这里是游戏简介，这里是游戏简这里是游戏简介这里是游戏简介。</view>
+      </view>
     </view>
-    <view class="item" bind:tap="goToGameDetail">
-      <view class="sign">编辑精选</view>
-      <view class="title">2018年度游戏精选</view>
-      <image src="http://test.fxpixels.site/Snipaste_2018-12-06_15-37-56.png" mode="widthFix"></image>
-      <view class="desc">这里是游戏简介，这里是游戏简介，这里是游戏简这里是游戏简介这里是游戏简介。</view>
-    </view>
-  </view>
+</wux-refresher>
 </template>

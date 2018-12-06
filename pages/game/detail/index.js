@@ -13,5 +13,10 @@ Page({
   onShow(){
 
   },
+  goBack(){
+    wx.navigateBack({
+      delta: 1
+  })
+  }
 
 })

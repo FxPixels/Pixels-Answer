@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+import { $stopWuxRefresher } from '../../dist/wux/index'
 
 Page({
   data: {
@@ -42,7 +43,18 @@ Page({
     })
   },
   goToGameDetail(){
-    console.log(123)
-  }
+    wx.navigateTo({
+      url: '/pages/game/detail/index'
+    })
+  },
+  onPulling() {
+    console.log('onPulling')
+},
+onRefresh() {
+    console.log('onRefresh')
+    setTimeout(() => {
+        $stopWuxRefresher()
+    }, 2000)
+},
 
 })

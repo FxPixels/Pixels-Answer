@@ -1,0 +1,94 @@
+.back{
+  position: absolute;
+  top: 60rpx;
+  left: 20rpx;
+  background-color: rgba(102,102,102, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+
+.intro{
+  position: absolute;
+  top: 200rpx;
+  left: 60rpx;
+  color: #fff;
+}
+
+.say-1{
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.say-2{
+  margin-top: 20rpx;
+  width: 80%;
+  font-size: 30rpx;
+}
+
+.detail{
+  height: 100vh;
+  position: relative;
+}
+
+.bg{
+  width: 100%;
+  height: 100%;
+}
+
+.info{
+  position: absolute;
+  bottom: 40rpx;
+  border-radius: 20px;
+  width: calc(100% - 50rpx * 2);
+  background-color: #fff;
+  margin: 0 50rpx;
+  padding: 20px 0;
+}
+
+.name{
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.name>view{
+  margin-left: 15px;
+}
+
+.name > image{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+
+.title{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.desc {
+  font-size: 26rpx;
+}
+
+.data{
+  margin-top: 55rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.data>view>view{
+  text-align: center;
+}
+
+.data>view>view:first-child{
+  font-size: 30rpx;
+}
+
+.data>view>view:last-child{
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
