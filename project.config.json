@@ -4,16 +4,17 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.1",
 	"appid": "wx5ba815ae55f54517",
-	"projectname": "new",
+	"projectname": "Pixels-Answer",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
