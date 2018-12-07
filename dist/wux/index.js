@@ -28,6 +28,8 @@ const $wuxKeyBoard = (selector = '#wux-keyboard', ctx) => getCtx(selector, ctx)
 const $wuxSelect = (selector = '#wux-select', ctx) => getCtx(selector, ctx)
 const $wuxCalendar = (selector = '#wux-calendar', ctx) => getCtx(selector, ctx)
 const $stopWuxRefresher = (selector = '#wux-refresher', ctx) => getCtx(selector, ctx).finishPullToRefresh()
+const $stopWuxLoader = (selector = '#wux-refresher', ctx) => getCtx(selector, ctx).finishLoadmore()
+const $wuxLoaderEnd = (selector = '#wux-refresher', ctx) => getCtx(selector, ctx).endLoadmore()
 
 export {
     $wuxActionSheet,
@@ -42,6 +44,8 @@ export {
     $wuxSelect,
     $wuxCalendar,
     $stopWuxRefresher,
+    $stopWuxLoader,
+    $wuxLoaderEnd,
     $wuxCountDown,
     $wuxCountUp,
 }

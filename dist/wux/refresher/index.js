@@ -4,7 +4,9 @@ Component({
     externalClasses: ['wux-class'],
     data: {
         className: 'wux-refresher--hidden',
+        lClassName: 'wux-loader--hidden',
         style: defaultStyle,
+        noData: false
     },
     properties: {
         pullingIcon: {
@@ -23,14 +25,30 @@ Component({
             type: String,
             value: '正在刷新',
         },
+        loadingText: {
+            type: String,
+            value: '正在加载'
+        },
+        loadNoDataText: {
+            type: String,
+            value: '没有更多数据'
+        },
         disablePullingRotation: {
             type: Boolean,
             value: false,
         },
         distance: {
             type: Number,
-            value: 30,
+            value: 40,
         },
+        hasFooter: {
+            type: Boolean,
+            value: false,
+        },
+        footerHeight: {
+            type: Number,
+            value: 88,
+        }
     },
     methods: {
         /**
@@ -60,6 +78,8 @@ Component({
             this.setData({
                 style: 'transition: transform .4s; transform: translate3d(0, 50px, 0) scale(1);',
                 className: 'wux-refresher--active wux-refresher--refreshing',
+                noData: false,
+                lClassName: 'wux-loader--hidden'
             })
         },
         /**
@@ -70,18 +90,43 @@ Component({
                 className: 'wux-refresher--active wux-refresher--refreshing wux-refresher--refreshing-tail',
             })
         },
+        hide(){
+            this.setData({
+                lClassName: 'wux-loader--hidden',
+            })
+        },
         /**
          * 正在下拉
          * @param {Number} diffY 距离
          */
         move(diffY) {
             const style = `transition-duration: 0s; transform: translate3d(0, ${diffY}px, 0) scale(1);`
-            const className = diffY < this.data.distance ? 'wux-refresher--visible' : 'wux-refresher--active'
 
-            this.setData({
-                style,
-                className,
-            })
+
+            let c
+            let d
+            if (diffY > 0) {
+                if (diffY < this.data.distance) {
+                    c = 'wux-refresher--visible'
+                } else if (diffY > this.data.distance) {
+                    c = 'wux-refresher--active'
+                }
+                const className = c
+                this.setData({
+                    style,
+                    className,
+                })
+            } else if(diffY < 0 && this.data.noData === false) {
+                if (Math.abs(diffY) < this.data.distance) {
+                    d = 'wux-loader--hidden'
+                } else if (Math.abs(diffY) > this.data.distance) {
+                    d = 'wux-loader--visible'
+                }
+                const lClassName = d
+                this.setData({
+                    lClassName
+                })
+            }
         },
         /**
          * 判断是否正在刷新
@@ -125,6 +170,24 @@ Component({
                 setTimeout(() => this.deactivate(), 200)
             }, 200)
         },
+        finishLoadmore(){
+            if(this.data.noData === true){
+                this.setData({
+                    noData: true
+                })
+            }else{
+                setTimeout(() => {
+                    this.requestAnimationFrame(this.hide)
+                    setTimeout(() => this.deactivate(), 200)
+                }, 200)
+            }
+            
+        },
+        endLoadmore(){
+            this.setData({
+                noData: true
+            })
+        },
         /**
          * 手指触摸动作开始
          */
@@ -149,14 +212,22 @@ Component({
             this.diffX = p.x - this.start.x
             this.diffY = p.y - this.start.y
 
-            if (this.diffY < 0) return false
+            if (this.diffY < 0) {
+                this.diffY = - Math.pow(Math.abs(this.diffY), 0.8)
+            } else {
+                this.diffY = Math.pow(this.diffY, 0.8)
+            }
 
-            this.diffY = Math.pow(this.diffY, 0.8)
-
-            if (!this.activated && this.diffY > this.data.distance) {
+            if (!this.activated && this.diffY > 0 && this.diffY > this.data.distance) {
                 this.activated = true
                 this.triggerEvent('pulling')
-            } else if (this.activated && this.diffY < this.data.distance) {
+            } else if (this.activated && this.diffY > 0 && this.diffY < this.data.distance) {
+                this.activated = false
+            }
+            else if (!this.activated && this.diffY < 0 && Math.abs(this.diffY) > this.data.distance) {
+                this.activated = true
+                this.triggerEvent('pulling')
+            } else if (!this.activated && this.diffY < 0 && Math.abs(this.diffY) < this.data.distance) {
                 this.activated = false
             }
 
@@ -168,13 +239,17 @@ Component({
         bindtouchend(e) {
             this.start = false
 
-            if (this.diffY <= 0 || this.isRefreshing()) return false
+            if (this.isRefreshing()) return false
 
             this.deactivate()
 
-            if (Math.abs(this.diffY) >= this.data.distance) {
+            if (this.diffY > 0 && Math.abs(this.diffY) >= this.data.distance) {
                 this.refreshing()
                 this.triggerEvent('refresh')
+            } else if (this.diffY < 0 && Math.abs(this.diffY) >= this.data.distance) {
+                if(this.data.noData !== true){
+                    this.triggerEvent('loadmore')
+                }
             }
         },
     },

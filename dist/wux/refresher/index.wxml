@@ -12,4 +12,10 @@
         </view>
     </view>
     <slot></slot>
+    <view class="wux-loader {{lClassName}}">
+        <text wx:if="{{noData === false}}" class="{{ refreshingIcon || 'wux-refresher__icon--refresher' }}"></text>
+        <view wx:if="{{noData === false}}" class="wux-loader__content">{{loadingText}}</view>
+        <view wx:else class="wux-loader__content">{{loadNoDataText}}</view>
+    </view>
+    <view wx:if="{{hasFooter}}" style="height: {{footerHeight}}rpx"></view>
 </view>

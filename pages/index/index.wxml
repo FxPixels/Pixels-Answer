@@ -6,7 +6,7 @@
 <view class="container">
   <view wx:if="{{indexStatus === '0'}}">
     <template is="header"></template>
-    <template is="home" data="{{imgUrls}}"></template>
+    <template is="home" data="{{imgUrls, listData}}"></template>
   </view>
   <view wx:elif="{{indexStatus === '1'}}">
     <template is="user"></template>

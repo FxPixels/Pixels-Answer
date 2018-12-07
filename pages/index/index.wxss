@@ -9,6 +9,7 @@
   height: 130rpx;
   position: fixed;
   top: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 40rpx 40rpx 0 40rpx;
@@ -19,6 +20,7 @@
 .time>view:last-child{
   color: rgb(153,153,153);
   font-size: 40rpx;
+  font-weight: bold;
 }
 
 .search-bar{
@@ -35,7 +37,7 @@
 }
 
 .list{
-  margin-top: 190rpx;
+  /* margin-top: 190rpx; */
   overflow: hidden;
 }
 
@@ -83,3 +85,8 @@
   font-size: 28rpx;
 }
 
+#wux-refresher{
+  position: relative;
+  top: 190rpx;
+  margin-bottom: 88rpx;
+}

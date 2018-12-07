@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-import { $stopWuxRefresher } from '../../dist/wux/index'
+import { $stopWuxRefresher,$stopWuxLoader,$wuxLoaderEnd } from '../../dist/wux/index'
 
 Page({
   data: {
@@ -11,27 +11,27 @@ Page({
       key: '0',
       name: '推荐',
       icon: ''
-    },{
+    }, {
       key: '1',
       name: '我的',
       icon: ''
     }]
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
   onLoad: function () {
-   
+
   },
-  onShow(){
+  onShow() {
     wx.setNavigationBarTitle({
       title: this.data.title[0].name
     })
   },
-  onTabChange(e){
+  onTabChange(e) {
     console.log(e)
     let index = e.detail.key
     this.setData({
@@ -42,19 +42,25 @@ Page({
       title: this.data.title[Number(index)].name
     })
   },
-  goToGameDetail(){
+  goToGameDetail() {
     wx.navigateTo({
       url: '/pages/game/detail/index'
     })
   },
   onPulling() {
     console.log('onPulling')
-},
-onRefresh() {
+  },
+  onRefresh() {
     console.log('onRefresh')
     setTimeout(() => {
-        $stopWuxRefresher()
+      $stopWuxRefresher()
     }, 2000)
-},
+  },
+  onLoadmore(){
+    console.log('onLoadmore')
+    setTimeout(() => {
+      $wuxLoaderEnd()
+    }, 2000)
+  }
 
 })

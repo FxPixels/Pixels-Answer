@@ -1,5 +1,5 @@
 <template name="home">
-  <wux-refresher id="wux-refresher" bind:pulling="onPulling" bind:refresh="onRefresh">
+  <wux-refresher  id="wux-refresher" bind:pulling="onPulling" bind:refresh="onRefresh" bind:loadmore="onLoadmore" hasFooter="{{true}}">
     <view class="list">
       <view class="item">
         <view class="sign">主打推荐</view>
@@ -14,5 +14,52 @@
         <view class="desc">这里是游戏简介，这里是游戏简介，这里是游戏简这里是游戏简介这里是游戏简介。</view>
       </view>
     </view>
-</wux-refresher>
+    <view>1565</view>
+    <view>1565</view>
+    <view>1565</view>
+    <view>1565</view>
+    <view>1565</view>
+    <view>1565</view>
+    <view>1565</view>
+    <view>1565</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564</view>
+    <view>15654564----</view>
+  </wux-refresher>
 </template>
