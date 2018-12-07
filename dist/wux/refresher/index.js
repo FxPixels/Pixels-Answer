@@ -39,7 +39,7 @@ Component({
         },
         distance: {
             type: Number,
-            value: 40,
+            value: 30,
         },
         hasFooter: {
             type: Boolean,

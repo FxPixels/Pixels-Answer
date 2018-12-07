@@ -29,9 +29,10 @@
 }
 
 .wux-loader__content{
-  position: relative;
+  position: absolute;
   width: 100%;
-  top: 10rpx;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .wux-refresher--hidden {
