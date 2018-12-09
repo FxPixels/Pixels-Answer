@@ -1,5 +1,22 @@
 <template name="home">
   <wux-refresher  id="wux-refresher" bind:pulling="onPulling" bind:refresh="onRefresh" bind:loadmore="onLoadmore" hasFooter="{{true}}">
+    <view class="hot">
+      <!-- <view class="sec">热门搜索</view> -->
+      <view class="tags">
+        <view class="tag">
+          <image src="http://pic.fxpixels.site/20181209220847.png?v=1.0"></image>
+          <view>不知道</view>
+        </view>
+        <view class="tag">
+          <image src="http://pic.fxpixels.site/20181209220847.png?v=1.0"></image>
+          <view>不知道什么标签</view>
+        </view>
+        <view class="tag">
+          <image src="http://pic.fxpixels.site/20181209220847.png?v=1.0"></image>
+          <view>什么标签</view>
+        </view>
+      </view>
+    </view>
     <view class="list">
       <view class="item">
         <view class="sign">主打推荐</view>
@@ -14,52 +31,6 @@
         <view class="desc">这里是游戏简介，这里是游戏简介，这里是游戏简这里是游戏简介这里是游戏简介。</view>
       </view>
     </view>
-    <view>1565</view>
-    <view>1565</view>
-    <view>1565</view>
-    <view>1565</view>
-    <view>1565</view>
-    <view>1565</view>
-    <view>1565</view>
-    <view>1565</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564</view>
-    <view>15654564----</view>
+
   </wux-refresher>
 </template>
